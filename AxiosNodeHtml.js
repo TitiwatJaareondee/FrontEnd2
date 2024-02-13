@@ -1,11 +1,13 @@
-const express = require('express');
-const axios = require('axios');
+const express = require("express");
+const axios = require("axios");
+const path = require("path");
 const app = express();
 var bodyParser = require('body-parser');
 
 //const base_url = "http://localhost:5500";
 const base_url = "http://node56943-titiwat28-noderest.proen.app.ruk-com.cloud";
 
+app.set("views", path.join(__dirname, "/public/views"));
 app.set('view engine','ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -17,7 +19,7 @@ app.get("/",async (req, res) => {
         res.render("books", {books: response.data});
     }catch (err) {
         console.error(err);
-        res.status(500).send('Eror');
+        res.status(500).send('Eror1');
     }
 });
 
@@ -27,7 +29,7 @@ app.get("/book/:id",async (req, res) => {
         res.render("book", {book: response.data});
     }catch (err) {
         console.error(err);
-        res.status(500).send('Eror');
+        res.status(500).send('Eror2');
     }
 });
 
