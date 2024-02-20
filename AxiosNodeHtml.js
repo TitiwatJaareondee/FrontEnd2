@@ -19,7 +19,7 @@ app.get("/",async (req, res) => {
         res.render("books", {books: response.data});
     }catch (err) {
         console.error(err);
-        res.status(500).send('Eror1');
+        res.status(500).send('Error');
     }
 });
 
@@ -29,7 +29,7 @@ app.get("/book/:id",async (req, res) => {
         res.render("book", {book: response.data});
     }catch (err) {
         console.error(err);
-        res.status(500).send('Eror2');
+        res.status(500).send('Error');
     }
 });
 
